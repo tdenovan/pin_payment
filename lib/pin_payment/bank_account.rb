@@ -21,7 +21,7 @@ module PinPayment
     # @return [Hash]
     def to_hash
       {}.tap do |hash|
-        self.class.attributes {|attribute| value = send(attribute); hash[attribute] = value if value}
+        self.class.attributes.each {|attribute| value = send(attribute); hash[attribute] = value if value}
       end
     end
 
